@@ -18,11 +18,59 @@ const sinhvien2: {name: string, age: number, homeTown?: string} = {
 // const book2: 
 
 interface Book {
-    authors: Author[]
+    authors: Author[],
+    book_cover ?: string,
+    categories : {id: number, name: string, is_leaf: boolean},
+    current_seller: {},
 }
 
+// interface
 interface Author {
     id: number,
     name: string,
     slug: string
+}
+
+//type aliasous
+
+type Seller = {
+    id: number,
+    sku: string,
+    name: string,
+    link: string,
+    logo: string,
+    price: number
+}
+
+// Example
+enum ROLE {STAFF, MANAGER, USER}
+
+// // Properties
+// interface User {
+//     username: string,
+//     password: string,
+//     email: string,
+    
+// }
+// // Methods
+// interface User {
+//     login: () => void,
+//     logout: () => void
+// }
+
+
+// interface Admin extends User {
+//     role: ROLE.MANAGER | ROLE.STAFF
+// }
+
+type User = {
+    username: string,
+    password: string,
+    email: string,
+    login: () => void,
+    logout: () => void,
+}
+
+type Admin = User & {
+    role: ROLE.MANAGER | ROLE.STAFF
 }

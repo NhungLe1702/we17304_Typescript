@@ -67,20 +67,20 @@ const temp = num_arr.map((item) => {
 console.log(temp);
 
 // Dùng callback typescript
-const we17304_map = function(arr:number[], callback?:(item:number) => number) {
-    const temp = [];
-    for(let i = 0; i< arr.length; i++) {
-        const newItem = callback(arr[i]);
-        temp.push(newItem);
-    }
-    return temp;
-}
+// const we17304_map = function(arr:number[], callback?:(item:number) => number) {
+//     const temp = [];
+//     for(let i = 0; i< arr.length; i++) {
+//         const newItem = callback(arr[i]);
+//         temp.push(newItem);
+//     }
+//     return temp;
+// }
 
-const result = we17304_map(num_arr, (item) => {
-    return item * item;
-})
+// const result = we17304_map(num_arr, (item) => {
+//     return item * item;
+// })
 
-console.log(result);
+// console.log(result);
 
 
 
