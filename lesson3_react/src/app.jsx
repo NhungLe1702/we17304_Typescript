@@ -1,22 +1,13 @@
-import Avatar from "./components/avatar"
+// import Square from "./components/square"
+import Board from "./components/board";
 
-// component Base
-
-// Props: Là một đối tượng mà dùng để truyền thông tin từ Component cha xuống component con
 const App = () => {
-    const user = {
-        name: "Vu Anh Tu",
-        age: 30,
-    }
-    // JSX
-    return (
-        <div>
-            <h1>Hello world</h1>
-            <Avatar user={user} showInfo={() => console.log(user)}>
-                <h2>Lớp we17304</h2>
-            </Avatar>
-        </div>
-    )
+
+    return <div
+        className="h-[100vh] flex flex-col justify-center items-center">
+        <Board>
+        </Board> 
+    </div>
 }
 
 export default App
