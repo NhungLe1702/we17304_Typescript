@@ -26,14 +26,15 @@ const Board = ({ children }) => {
   ]);
 
   const [player, setPlayer] = useState(true);
-  // const [step, setStep] = useState(0);
+  const [undo, setUndo] = useState(12);
+
   let disable = false;
 
   const handlePlay = (position) => {
     if (disable) return;
     const newGame = game.map((g, index) => {
       if (index === position) {
-        // setStep(step + 1);
+        // undo = position;
         return player ? "X" : "O";
       }
       return g;
@@ -41,6 +42,7 @@ const Board = ({ children }) => {
 
     setGame(newGame);
     setPlayer(!player);
+    setUndo(undo);
   };
 
   const listWinner = [
@@ -80,12 +82,19 @@ const Board = ({ children }) => {
   }
 
   const refreshPage = () => {
-    // window.location.reload(false);
     setGame([null, null, null, null, null, null, null, null, null]);
     setColor([false, false, false, false, false, false, false, false, false]);
     setPlayer(player ? "X" : "O");
     return;
   };
+
+  
+  
+
+  const undoChanges = () => {
+    console.log(undo);
+
+  }
 
   return (
     <>
@@ -111,8 +120,8 @@ const Board = ({ children }) => {
           className="bg-sky-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-[13px] rounded">
           Reset
         </button>
-        
-        <button className="bg-sky-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-[13px] rounded">
+
+        <button onClick={undoChanges} className="bg-sky-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-[13px] rounded">
           Undo
         </button>
       </div>
