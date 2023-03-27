@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Square from "./square";
 
 const Board = ({ children }) => {
@@ -24,17 +24,47 @@ const Board = ({ children }) => {
     false,
     false,
   ]);
-
+  const [time, setTime] = useState(3);
   const [player, setPlayer] = useState(true);
-  const [undo, setUndo] = useState(12);
-
   let disable = false;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(time - 1);
+      if (time <= 0) {
+        setTime(3);
+        if (!player === true || !player === false) {
+          const gameRun = game.reduce((g, checkdanh, index) => {
+            if (checkdanh === null) {
+              return [...g, index];
+            }
+            return g;
+          }, []);
+          const random = Math.floor(Math.random() * gameRun.length);
+          const position = gameRun[random];
+
+          const newGame = game.map((g, index) => {
+            if (index === position) {
+              return player ? "X" : "O";
+            }
+            return g;
+          });
+
+          setGame(newGame);
+          setPlayer(!player);
+        }
+      }
+    }, 1000);
+    if (checkWinner() || !game.includes(null)) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [time, player, game]);
 
   const handlePlay = (position) => {
     if (disable) return;
     const newGame = game.map((g, index) => {
       if (index === position) {
-        // undo = position;
         return player ? "X" : "O";
       }
       return g;
@@ -42,7 +72,8 @@ const Board = ({ children }) => {
 
     setGame(newGame);
     setPlayer(!player);
-    setUndo(undo);
+    setTime(3);
+
   };
 
   const listWinner = [
@@ -66,7 +97,6 @@ const Board = ({ children }) => {
           color[p2] = true;
           color[p3] = true;
         }
-
         return game[p1];
       }
     }
@@ -85,23 +115,23 @@ const Board = ({ children }) => {
     setGame([null, null, null, null, null, null, null, null, null]);
     setColor([false, false, false, false, false, false, false, false, false]);
     setPlayer(player ? "X" : "O");
+    setTime(3);
     return;
   };
 
-  
-  
-
-  const undoChanges = () => {
-    console.log(undo);
-
+  const undoChange = () => {
+    console.log(game);
   }
 
   return (
     <>
       <div className="w-[200px] h-[40px] text-center leading-[40px] text-[20px] mb-3">
-        <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r text-rose-500">
+        <h2 className="text-3xl font-extrabold bg-gradient-to-r text-rose-500">
           {status}
         </h2>
+      </div>
+      <div className="w-[200px] h-[40px] text-center leading-[40px] text-[20px] mb-3">
+        <h2 className="text-3xl font-extrabold bg-gradient-to-r text-rose-500">{time}</h2>
       </div>
       <div className="grid grid-cols-3 gap-2 w-[240px]">
         <Square value={game[0]} position={0} handlePlay={handlePlay} colorWin={color[0]} />
@@ -121,7 +151,7 @@ const Board = ({ children }) => {
           Reset
         </button>
 
-        <button onClick={undoChanges} className="bg-sky-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-[13px] rounded">
+        <button onClick={undoChange} className="bg-sky-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-[13px] rounded">
           Undo
         </button>
       </div>
