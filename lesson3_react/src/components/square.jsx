@@ -15,7 +15,7 @@ const Square = ({ value, position, handlePlay, colorWin }) => {
     <>
       <button
         onClick={squareHandlePlay}
-        className={"w-[70px] h-[70px]  text-3xl text-white " + bgWin}
+        className={"w-[70px] h-[70px] text-3xl text-white " + bgWin}
       >
         {value}
       </button>
