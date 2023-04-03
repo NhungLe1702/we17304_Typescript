@@ -2,3 +2,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;  
+}
+
+.container_home {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto; 
+}
+
+.header_inser p svg {
+    margin: 13px 5px 5px;
+}
+
+.product_detail_img {
+    width: 30%;
+}
+
+.product_detail_info {
+    width: 65%;
+}

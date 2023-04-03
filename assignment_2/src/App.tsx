@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import UserLayout from './components/layout/User'
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserLayout from "./components/layout/User";
+import homePage from "./pages/homePage";
+import productPage from "./pages/productPage";
 
 function App() {
-  return <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<UserLayout/>}>
-        <Route index element={<h1>Trang chủ</h1>}/>
-        <Route path='detail' element={<h1>Chi tiết</h1>}/>
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<UserLayout/>}>
+          <Route index element={homePage()} />
+          <Route path="detail" element={productPage()} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
