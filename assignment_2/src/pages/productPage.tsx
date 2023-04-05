@@ -1,4 +1,21 @@
+import { getById } from "../api/product";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { IProduct } from "../models";
+
+
 const productPage = () => {
+
+  const [product, setProduct] = useState<IProduct>({} as IProduct);
+  const {id} = useParams()
+  console.log(id);
+  
+
+  const fetchProductById = async () => {
+      // const {data} = await getById(id);
+  }
+
+
   const VND = new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
@@ -6,6 +23,7 @@ const productPage = () => {
 
   return (
     <>
+    <p>Chi tiết sp {id}</p>
       <div className="header_inser bg-[#F5F5FA] leading-[40px] shadow-md">
         <div className="container">
           <div className="go_back_tc">
@@ -17,13 +35,13 @@ const productPage = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="text-gray-500 w-4 h-4"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M8.25 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
@@ -34,13 +52,13 @@ const productPage = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="text-gray-500 w-4 h-4"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M8.25 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
@@ -49,13 +67,13 @@ const productPage = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="text-gray-500 w-4 h-4"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M8.25 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>

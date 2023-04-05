@@ -1,7 +1,22 @@
-import product from "../components/layout/Product";
+import Product from "../components/Product";
+import { useEffect, useState } from "react";
+import { IProduct } from "../models";
+import { getAll } from "../api/product";
 
 const homePage = () => {
-  
+  const [products, setProducts] = useState<IProduct[]>([]);
+
+  const fetchProduct = async () => {
+    try {
+      const { data } = await getAll();
+      setProducts(data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
   return (
     <>
       <div className="banner">
@@ -14,20 +29,9 @@ const homePage = () => {
         <div className="container_home">
           <h1>SẢN PHẨM NỔI BẬT NHẤT</h1>
           <div className="grid grid-cols-7 gap-x-5 gap-y-[100px] my-6">
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
-            {product()}
+            {products.map((product) => (
+              <Product data={product} key={product.id}/>
+            ))}
           </div>
         </div>
       </section>
