@@ -23,6 +23,22 @@
       "lastName": "Tuoi",
       "confirmPassword": "454545",
       "id": 3
+    },
+    {
+      "email": "nguyet@gmail.com",
+      "password": "$2a$10$Br3c6nM0Dadn3YX9B/X3tOdkG1ibTue7AqpgLxoGwEBbx3i4xYrqO",
+      "firstName": "Nguyen",
+      "lastName": "Nhung",
+      "confirmPassword": "123456",
+      "id": 4
+    },
+    {
+      "email": "hongltph28123@fpt.edu.vn",
+      "password": "$2a$10$5C75wD4yZJnou2lR6JNCGegHMsadmYp2vSnY.n4t8MqIqA31g2ubS",
+      "firstName": "Le",
+      "lastName": "Hong",
+      "confirmPassword": "123456",
+      "id": 5
     }
   ],
   "products": [
