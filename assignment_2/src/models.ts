@@ -1,3 +1,5 @@
+
+import * as Yup from "yup"
 export interface IProduct {
   id: number;
   name: string;
@@ -13,3 +15,13 @@ export interface ISpecifications {
   name: string;
   attributes: { code: string; name: string; value: string }[];
 }
+
+export const signupSchema = Yup.object({
+  firstName: Yup.string().required("Trường dữ liệu bắt buộc"),
+  lastName: Yup.string().required("Trường dữ liệu bắt buộc"),
+  email: Yup.string().email("Email sai định dạng").required("Trường dữ liệu bắt buộc"),
+  password: Yup.string().min(6).required("Trường dữ liệu bắt buộc"),
+  confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Mật khẩu không khớp"),
+})
+
+export type SignupForm = Yup.InferType<typeof signupSchema>

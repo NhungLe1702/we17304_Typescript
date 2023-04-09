@@ -6,7 +6,7 @@ export const getAll = () => {
   return instance.get(uri);
 };
 
-export const getById = (id: number) => {
-  const uri = "/product/" + id;
+export const getById = (id: string) => {
+  const uri = "/products/" + id;
   return instance.get(uri);
 };

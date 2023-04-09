@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { IProduct } from "../models";
 import { getAll } from "../api/product";
 
-const homePage = () => {
+const HomePage = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
   const fetchProduct = async () => {
@@ -28,7 +28,7 @@ const homePage = () => {
       <section>
         <div className="container_home">
           <h1>SẢN PHẨM NỔI BẬT NHẤT</h1>
-          <div className="grid grid-cols-7 gap-x-5 gap-y-[100px] my-6">
+          <div className="grid grid-cols-6 gap-x-5 gap-y-[100px] my-6">
             {products.map((product) => (
               <Product data={product} key={product.id}/>
             ))}
@@ -39,4 +39,4 @@ const homePage = () => {
   );
 };
 
-export default homePage;
+export default HomePage;

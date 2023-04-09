@@ -1,22 +1,20 @@
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./components/layout/User";
-import homePage from "./pages/homePage";
-import productPage from "./pages/productPage";
+import HomePage from "./pages/homePage";
+import Signup from "./pages/signUpPage";
+import Login from "./pages/loginPage";
+import ProductPage from "./pages/productPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
         <Route path="/" element={<UserLayout />}>
-          <Route index element={homePage()} />
-          <Route path="product/:id" element={productPage()} />
+          <Route index element={<HomePage/>} />
+          <Route path="product/:id" element={<ProductPage/>} />
         </Route>
-
-        {/* <Route path="/" element={<UserLayout />}>
-          <Route index element={homePage()} />
-          <Route path="product/:id" element={productPage()} />
-        </Route> */}
       </Routes>
     </BrowserRouter>
   );

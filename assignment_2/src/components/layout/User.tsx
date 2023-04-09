@@ -1,5 +1,4 @@
-import { Outlet } from "react-router-dom";
-
+import { Outlet, Link } from "react-router-dom";
 const UserLayout = () => {
   return (
     <>
@@ -12,6 +11,10 @@ const UserLayout = () => {
             type="text"
             placeholder="search"
           />
+          <div>
+            <Link to={`/login`}><p className="text-[#ffffff]">Login</p></Link>
+            <Link to={`/signup`}><p className="">Signup</p></Link>
+          </div>
         </div>
       </header>
       {/* Content */}

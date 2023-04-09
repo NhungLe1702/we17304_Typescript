@@ -1,5 +1,30 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "nhung@gmail.com",
+      "password": "$2a$10$6PhyvvnC9hyDnvxukrkSc.ZQQA3fpDzZxAP6okiTyze0mfinkRIii",
+      "firstName": "Le",
+      "lastName": "Nhung",
+      "confirmPassword": "123456",
+      "id": 1
+    },
+    {
+      "email": "hainguyen@gmail.com",
+      "password": "$2a$10$OmV0ekJxpyISnt6j9nKDe.SQ6AY8uXsVcW3XZSm/N5SK6keNG.ECW",
+      "firstName": "Nguyen",
+      "lastName": "Hai",
+      "confirmPassword": "123456",
+      "id": 2
+    },
+    {
+      "email": "tuoiDao@gmail.com",
+      "password": "$2a$10$hKPKpo4nKwcuieaM0VZ/tudJOa5ZTEbmZ2icfIZNG6lkYPJOASoRO",
+      "firstName": "Dao",
+      "lastName": "Tuoi",
+      "confirmPassword": "454545",
+      "id": 3
+    }
+  ],
   "products": [
     {
       "id": 1,

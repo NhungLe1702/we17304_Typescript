@@ -1,20 +1,24 @@
 import { getById } from "../api/product";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IProduct } from "../models";
 
-
-const productPage = () => {
-
+function ProductPage() {
   const [product, setProduct] = useState<IProduct>({} as IProduct);
-  const {id} = useParams()
-  console.log(id);
-  
+
+  const { id } = useParams();
 
   const fetchProductById = async () => {
-      // const {data} = await getById(id);
-  }
+    if (id) {
+      const { data } = await getById(id);
+      console.log(data);
+      setProduct(data);
+    }
+  };
 
+  useEffect(() => {
+    fetchProductById();
+  }, []);
 
   const VND = new Intl.NumberFormat("vi-VN", {
     style: "currency",
@@ -23,7 +27,6 @@ const productPage = () => {
 
   return (
     <>
-    <p>Chi tiết sp {id}</p>
       <div className="header_inser bg-[#F5F5FA] leading-[40px] shadow-md">
         <div className="container">
           <div className="go_back_tc">
@@ -62,7 +65,7 @@ const productPage = () => {
                   d="M8.25 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
-              <span className="text-[13px] text-[#808089]">Samsung</span>
+              <span className="text-[13px] text-[#808089]">{product.brand?.name}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -77,7 +80,7 @@ const productPage = () => {
                   d="M8.25 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
-              <span className="text-[13px]">Iphone 11 64GB</span>
+              <span className="text-[13px]">{product.name}</span>
             </p>
           </div>
         </div>
@@ -99,7 +102,7 @@ const productPage = () => {
             <div className="flex flex-row justify-between">
               <div className="product_detail_img ">
                 <div>
-                  <img src="https://res.cloudinary.com/dv3vzmogk/image/upload/v1666142438/anhhtus/%C4%90%E1%BB%81%20thi/3_225_c6ncpa.jpg" />
+                  <img src={product.images?.[0].base_url} />
                 </div>
 
                 <div className="mt-3 ">
@@ -129,10 +132,10 @@ const productPage = () => {
               <div className="product_detail_info ml-3 relative">
                 <div className="product_price flex text-lg ">
                   <p className="text-[24px] text-[#D70018]">
-                    {VND.format(11790000)}
+                    {VND.format(product.price)}
                   </p>
                   <p className="text-[14px] ml-3 mt-1 text-[#707070]">
-                    {VND.format(12790000)}
+                    {VND.format(product.original_price)}
                   </p>
                 </div>
 
@@ -232,6 +235,6 @@ const productPage = () => {
       </section>
     </>
   );
-};
+}
 
-export default productPage;
+export default ProductPage;
