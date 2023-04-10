@@ -5,9 +5,9 @@
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SignupForm } from "../models";
-import { signupSchema } from "../models";
-import { signup } from "../api/auth";
+import { SignupForm } from "../../models";
+import { signupSchema } from "../../models";
+import { signup } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {

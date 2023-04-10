@@ -1,7 +1,7 @@
-import { getById } from "../api/product";
+import { getById } from "../../api/product";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { IProduct } from "../models";
+import { IProduct } from "../../models";
 
 function ProductPage() {
   const [product, setProduct] = useState<IProduct>({} as IProduct);

@@ -50,3 +50,4 @@ export const updateSchema = Yup.object({
 });
 
 export type updateForm = Yup.InferType<typeof updateSchema>;
+

@@ -1,7 +1,7 @@
-import Product from "../components/Product";
+import Product from "../../components/Product";
 import { useEffect, useState } from "react";
-import { IProduct } from "../models";
-import { getAll } from "../api/product";
+import { IProduct } from "../../models";
+import { getAll } from "../../api/product";
 
 const HomePage = () => {
   const [products, setProducts] = useState<IProduct[]>([]);

@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./components/layout/User";
-import HomePage from "./pages/homePage";
-import Signup from "./pages/signUpPage";
-import Login from "./pages/loginPage";
-import ProductPage from "./pages/productPage";
-import DashBoard from "./pages/dashBoard";
-
+import HomePage from "./pages/client/homePage";
+import Signup from "./pages/client/signUpPage";
+import Login from "./pages/client/loginPage";
+import ProductPage from "./pages/client/productPage";
+import DashBoard from "./pages/admin/dashBoard";
+import ProductUpdate from "./pages/admin/updateProd";
+import AdminLayout from "./components/layout/admin";
 function App() {
   return (
     <BrowserRouter>
@@ -16,8 +17,10 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="product/:id" element={<ProductPage />} />
         </Route>
-        <Route path="/admin" element={<DashBoard />} />
-
+        <Route path="/admin" element={<AdminLayout/>}>
+          <Route index element={<DashBoard />} />
+          <Route path="product/:id" element={<ProductUpdate />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

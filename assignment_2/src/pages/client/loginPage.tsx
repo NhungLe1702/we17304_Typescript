@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
-import { SigninForm, signinSchema } from "../models";
-import { signin } from "../api/auth";
-import { useLocalStorage } from "../hooks";
+import { SigninForm, signinSchema } from "../../models";
+import { signin } from "../../api/auth";
+import { useLocalStorage } from "../../hooks";
 
 const Signin = () => {
   const {
@@ -21,11 +21,16 @@ const Signin = () => {
   const onSubmit = async (data: SigninForm) => {
     try {
       const {
-        data: { accessToke, user },
+        data: { accessToken, user },
       } = await signin(data);
 
-      setUser({ accessToke, user });
-      
+      setUser({ accessToken, ...user });
+      if(user.role) {
+        navigate("/admin");
+      } else {
+        navigate("/");
+
+      }
     } catch (err) {
       console.log(err);
     }
