@@ -3,6 +3,9 @@ import { getAll } from "../../api/product";
 import { IProduct } from "../../models";
 import { Link } from "react-router-dom";
 
+
+
+
 const DashBoard = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
@@ -37,6 +40,9 @@ const DashBoard = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Danh sách sản phẩm
                     </h3>
+                    <button className="mb-1.5 block w-full text-center text-white bg-[#3498a5] hover:bg-[#298995] px-2 py-1.5 rounded-md font-bold">
+                      <Link to={`/admin/product/add`}>Thêm sản phẩm</Link>
+                    </button>
                   </div>
                 </div>
                 <div className="flex flex-col mt-8">
@@ -104,6 +110,11 @@ const DashBoard = () => {
                                 <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
                                   <button className="bg-red-600 text-white rounded-md p-2">
                                     Xoá
+                                  </button>
+                                  <button className="bg-blue-600 text-white rounded-md p-2 ml-3">
+                                    <Link to={`/admin/product/${product.id}`}>
+                                      Sửa
+                                    </Link>
                                   </button>
                                 </td>
                               </tr>

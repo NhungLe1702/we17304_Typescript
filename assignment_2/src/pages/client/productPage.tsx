@@ -65,7 +65,9 @@ function ProductPage() {
                   d="M8.25 4.5l7.5 7.5-7.5 7.5"
                 />
               </svg>
-              <span className="text-[13px] text-[#808089]">{product.brand?.name}</span>
+              <span className="text-[13px] text-[#808089]">
+                {product.brand?.name}
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -90,7 +92,7 @@ function ProductPage() {
         <div className="container">
           <div className="go_back_tc">
             <p className="flex flex-row">
-              <span className="text-[18px]">Iphone 11 64GB</span>
+              <span className="text-[18px]">{product.name}</span>
             </p>
           </div>
         </div>
@@ -107,22 +109,9 @@ function ProductPage() {
 
                 <div className="mt-3 ">
                   <div className="grid grid-cols-5 gap-2 pt-3 border-t-[1px] border-[#F2F2F2]">
-                    <img
-                      className="w-20 h-16"
-                      src="https://res.cloudinary.com/dv3vzmogk/image/upload/v1666142438/anhhtus/%C4%90%E1%BB%81%20thi/3_225_c6ncpa.jpg"
-                    />
-                    <img
-                      className="w-20 h-16"
-                      src="https://res.cloudinary.com/dv3vzmogk/image/upload/v1666142438/anhhtus/%C4%90%E1%BB%81%20thi/3_225_c6ncpa.jpg"
-                    />
-                    <img
-                      className="w-20 h-16"
-                      src="https://res.cloudinary.com/dv3vzmogk/image/upload/v1666142438/anhhtus/%C4%90%E1%BB%81%20thi/3_225_c6ncpa.jpg"
-                    />
-                    <img
-                      className="w-20 h-16"
-                      src="https://res.cloudinary.com/dv3vzmogk/image/upload/v1666142438/anhhtus/%C4%90%E1%BB%81%20thi/3_225_c6ncpa.jpg"
-                    />
+                    {product.images?.map((image) => (
+                      <img className="w-20 h-16" src={image.base_url} />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -159,6 +148,27 @@ function ProductPage() {
               </div>
             </div>
 
+            <div>
+              <p className="my-5 text-[20px] text-[#333333] font-thin">
+                Thông tin chi tiết
+              </p>
+              <div className="flex text-[#242424] w-5/6 text-[14px] pl-3">
+                <div className=" w-full">
+                  <table className=" table-auto leading-10 text-[#4F4F4F]">
+                    {product.specifications?.[0].attributes.map(
+                      (item, index) => (
+                        <tr>
+                          <td className=" bg-[#EFEFEF] leading-4 pl-3">
+                            {item.name}
+                          </td>
+                          {index % 2 != 0 ?  <td className="bg-[#efefef] pl-3 w-5/6">{item.value} </td> :  <td className=" pl-3 w-5/6">{item.value} </td>}
+                        </tr>
+                      )
+                    )}
+                  </table>
+                </div>
+              </div>
+            </div>
             <div className="bg-[#F2F2F2] mt-[70px] rounded-md">
               <div className="text-center py-2">
                 <p className="text-[#D70018]">ĐẶC ĐIỂM NỔI BẬT</p>
@@ -184,52 +194,14 @@ function ProductPage() {
                 </ul>
               </div>
             </div>
-            <div>
-              <p className="text-[14px] leading-[30px] text-[#444444] pt-3">
-                Năm 2022 hứa hẹn sẽ là một năm rất đáng trông đợi đối với những
-                ai là fan của thương hiệu điện thoại Samsung. Mới đây, hãng sẽ
-                tiếp tục cho ra mắt nhiều smartphone với sự cải tiến trong thiết
-                kế và cấu hình, trong đó phải kể đến chiếc Samsung Galaxy A73
-                với nhiều cải tiến so với thế hệ trước. Vậy sản phẩm có gì nổi
-                bật, giá bao nhiêu và liệu có nên mua không? Tìm hiểu ngay nhé!
-              </p>
-              <div className="text-[14px] leading-[30px] text-[#444444] py-3">
-                <p className="text-[#0A263C] text-[21px] pb-2">
-                  Đánh giá Iphone 11 - Hiệu năng mượt mà, chụp ảnh chuyên nghiệp
-                </p>
-                <p className="pb-3">
-                  Điện thoại cao cấp nhất dòng Galaxy A series sở hữu nhiều nâng
-                  cấp đáng giá so với thế hệ trước, từ ngoại hình cho đến hiệu
-                  năng, đặc biệt là hệ thống camera. Sau đây là những đánh giá
-                  chi tiết về chiếc
-                </p>
-                <p className="text-[#0A263C] text-[16px] pb-1">
-                  Thiết kế sang trọng, màn hình Super AMOLED
-                </p>
-                <p>
-                  Trước khi mua bất kỳ chiếc điện thoại nào, người dùng cũng sẽ
-                  quan tâm đến thiết kế sản phẩm trước. Với phiên bản A73,
-                  Samsung đã tạo nên một chiếc smartphone với vẻ ngoài mang đến
-                  cảm giác sang trọng và tinh tế.
-                </p>
-                <p>
-                  Samsung Galaxy A73 được thiết kế gọn nhẹ với tiêu chí đáp ứng
-                  khả năng mang theo để tiện đi lại cho người dùng. Giờ đây, bạn
-                  có thể mang theo chiếc smartphone bên cạnh đến bất cứ đâu, bất
-                  cứ lúc nào.
-                </p>
-                <p>
-                  Kích thước và trọng lượng của chiếc điện thoại rất vừa phải và
-                  dĩ nhiên sẽ không chiếm quá nhiều diện tích trong túi xách và
-                  có thể di chuyển dễ dàng.
-                </p>
-              </div>
-            </div>
-            <div className=" text-center w-[350px] m-auto border border-1 border-[#000000] rounded-lg  py-1 ">
+
+            <div>{product.description}</div>
+
+            {/* <div className=" text-center w-[350px] m-auto border border-1 border-[#000000] rounded-lg  py-1 ">
               <button className="">
                 <a>Xem Thêm </a>
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

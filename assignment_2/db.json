@@ -40,6 +40,14 @@
       "lastName": "Hong",
       "confirmPassword": "123456",
       "id": 5
+    },
+    {
+      "email": "datDao@gmail.com",
+      "password": "$2a$10$5kFFrKzFfvfNmacIuWrZH.EbDPLjcPL5cGIuEHGK5TTIofnKXxSLa",
+      "firstName": "Dao",
+      "lastName": "Dat",
+      "confirmPassword": "123456",
+      "id": 6
     }
   ],
   "products": [
@@ -291,7 +299,7 @@
     },
     {
       "id": 2,
-      "name": "iPhone 14 Pro Max update",
+      "name": "iPhone 14 Pro Max",
       "price": 27750000,
       "original_price": 33990000,
       "description": "<h5>Nội dung quảng cáo</h5>\n<p>iPhone 14 Pro Max. Bắt trọn chi tiết ấn tượng với Camera Chính 48MP. Trải nghiệm iPhone theo cách hoàn toàn mới với Dynamic Island và màn hình Luôn Bật. Công nghệ an toàn quan trọng – Phát Hiện Va Chạm<sup>1</sup> thay bạn gọi trợ giúp khi cần kíp</p>\n<h5>Tính năng nổi bật</h5>\n<ul>\n<li>Màn hình Super Retina XDR 6,7 inch<sup>2</sup> với tính năng Luôn Bật và ProMotion</li>\n<li>Dynamic Island, một cách mới tuyệt diệu để tương tác với iPhone</li>\n<li>Camera Chính 48MP cho độ phân giải gấp 4 lần</li>\n<li>Chế độ Điện Ảnh nay đã hỗ trợ 4K Dolby Vision tốc độ lên đến 30 fps</li>\n<li>Chế độ Hành Động để quay video cầm tay mượt mà, ổn định</li>\n<li>Công nghệ an toàn quan trọng – Phát Hiện Va Chạm<sup>1</sup> thay bạn gọi trợ giúp khi cần kíp </li>\n<li>Thời lượng pin cả ngày và thời gian xem video lên đến 29 giờ<sup>3</sup></li>\n<li>A16 Bionic, chip điện thoại thông minh tuyệt đỉnh. Mạng di động 5G siêu nhanh<sup>4</sup></li>\n<li>Các tính năng về độ bền dẫn đầu như Ceramic Shield và khả năng chống nước<sup>5</sup></li>\n<li>iOS 16 đem đến thêm nhiều cách để cá nhân hóa, giao tiếp và chia sẻ<sup>6</sup></li>\n</ul>\n<h5>Pháp lý</h5>\n<p><sup>1</sup>SOS Khẩn Cấp sử dụng kết nối mạng di động hoặc Cuộc Gọi Wi-Fi.<br /><sup>2</sup>Màn hình có các góc bo tròn. Khi tính theo hình chữ nhật, kích thước màn hình theo đường chéo là 6,69 inch. Diện tích hiển thị thực tế nhỏ hơn. <br /><sup>3</sup>Thời lượng pin khác nhau tùy theo cách sử dụng và cấu hình; truy cập apple.com/batteries để biết thêm thông tin.<br /><sup>4</sup>Cần có gói cước dữ liệu. Mạng 5G chỉ khả dụng ở một số thị trường và được cung cấp qua một số nhà mạng. Tốc độ có thể thay đổi tùy địa điểm và nhà mạng. Để biết thông tin về hỗ trợ mạng 5G, vui lòng liên hệ nhà mạng và truy cập apple.com/iphone/cellular.<br /><sup>5</sup>iPhone 14 Pro Max có khả năng chống tia nước, chống nước và chống bụi. Sản phẩm đã qua kiểm nghiệm trong điều kiện phòng thí nghiệm có kiểm soát đạt mức IP68 theo tiêu chuẩn IEC 60529 (chống nước ở độ sâu tối đa 6 mét trong vòng tối đa 30 phút). Khả năng chống tia nước, chống nước và chống bụi không phải là các điều kiện vĩnh viễn. Khả năng này có thể giảm do hao mòn thông thường. Không sạc pin khi iPhone đang bị ướt. Vui lòng tham khảo hướng dẫn sử dụng để biết cách lau sạch và làm khô máy. Không bảo hành sản phẩm bị hỏng do thấm chất lỏng. <br /><sup>6</sup>Một số tính năng không khả dụng tại một số quốc gia hoặc khu vực.</p>\n<h5>Thông số kỹ thuật </h5>\n<p>Truy cập <a href=\"apple.com/iphone/compare\">apple.com/iphone/compare</a></p><p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>",
@@ -315,7 +323,29 @@
           "position": null,
           "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
           "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg"
+        },
+        {
+          "base_url": "https://applecenter.com.vn/uploads/cms/16632365567975.jpg",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg"
+        },
+        {
+          "base_url": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1WSv2XEo5MxRU804OwOf-AMzeh3SnbVTlqtP21jaRlQhRMgW1QTQfuaai7OgnK3tz3do&usqp=CAU",
+          "is_gallery": true,
+          "label": null,
+          "large_url": "https://salt.tikicdn.com/cache/w1200/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "medium_url": "https://salt.tikicdn.com/cache/w300/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "position": null,
+          "small_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg",
+          "thumbnail_url": "https://salt.tikicdn.com/cache/200x280/ts/product/89/0b/da/b8124e465e0585ba3d8f36a5bf9b4d0d.jpg"
         }
+       
+
       ],
       "brand": {
         "id": 17827,

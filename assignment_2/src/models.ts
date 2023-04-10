@@ -22,7 +22,7 @@ export const signupSchema = Yup.object({
     .email("Email sai định dạng")
     .required("Trường dữ liệu bắt buộc"),
   password: Yup.string().min(6).required("Trường dữ liệu bắt buộc"),
-  confirmPassword: Yup.string().oneOf(
+  confirmPassword: Yup.string().required("Trường dữ liệu bắt buộc").oneOf(
     [Yup.ref("password")],
     "Mật khẩu không khớp"
   ),

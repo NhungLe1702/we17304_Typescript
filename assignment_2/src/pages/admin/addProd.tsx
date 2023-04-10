@@ -1,46 +1,8 @@
 // 1. Xay dung UI trang cap nhat san pham
 // 2. Khai bao cac truong du lieu trong form
-import { useForm } from "react-hook-form";
-import * as Yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useParams, useNavigate } from "react-router-dom";
 
-import { getById, update } from "../../api/product";
-import { useEffect } from "react";
-import { updateForm, updateSchema } from "../../models";
 
-const ProductUpdate = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<updateForm>({
-    resolver: yupResolver(updateSchema),
-    defaultValues: async () => {
-      if (id) {
-        return await fetchProductById(id);
-      }
-    },
-  });
-
-  const onSubmit = async (data: updateForm) => {
-    try {
-      if (id) {
-        const response = await update(id, data);
-        console.log(response);
-        navigate("/admin");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const fetchProductById = async (id: string) => {
-    const { data } = await getById(id);
-    return data;
-  };
+const ProductAdd = () => {
 
   return (
     <div
@@ -54,7 +16,7 @@ const ProductUpdate = () => {
               <div className="mb-4 flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Cập nhật sản phẩm
+                    Thêm mới sản phẩm
                   </h3>
                 </div>
               </div>
@@ -65,55 +27,45 @@ const ProductUpdate = () => {
                       <form
                         action=""
                         className="space-y-4"
-                        onSubmit={handleSubmit(onSubmit)}
                       >
                         <div>
-                          <label>Tên sản phẩm: </label>
+                          <label>Name</label>
                           <input
-                            className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
-                            {...register("name")}
+                            className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                           />
                           <p className="text-red-600 text-[10px]">
-                            {errors.name && errors.name.message}
                           </p>
                         </div>
 
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                           <div>
-                            <label>Gía:</label>
+                            <label>Gía</label>
                             <input
-                              className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
-                              {...register("price")}
+                              className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                               type="number"
                             />
                             <p className="text-red-600 text-[10px]">
-                              {errors.price && errors.price.message}
                             </p>
                           </div>
 
                           <div>
-                            <label>Giảm giá:</label>
+                            <label>Giảm giá</label>
                             <input
-                              className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
-                              {...register("original_price")}
+                              className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                               type="number"
                             />
                             <p className="text-red-600 text-[10px]">
-                              {errors.original_price &&
-                                errors.original_price.message}
                             </p>
                           </div>
                         </div>
 
                         <div>
-                          <label>Mô tả:</label>
+                          <label>Mô tả</label>
 
                           <textarea
-                            className="w-full h-96 rounded-lg border border-gray-200 p-3 text-sm mt-3"
-                            {...register("description")}
+                            className="w-full rounded-lg border h-96 border-gray-200 p-3 text-sm"
                           ></textarea>
                           <p className="text-red-600 text-[10px]">
-                            {errors.description && errors.description.message}
                           </p>
                         </div>
 
@@ -146,4 +98,4 @@ const ProductUpdate = () => {
   );
 };
 
-export default ProductUpdate;
+export default ProductAdd;
