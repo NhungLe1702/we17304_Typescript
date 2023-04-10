@@ -66,7 +66,7 @@ function ProductPage() {
                 />
               </svg>
               <span className="text-[13px] text-[#808089]">
-                {product.brand?.name}
+                {/* {product.brand?.name} */}
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,14 +104,14 @@ function ProductPage() {
             <div className="flex flex-row justify-between">
               <div className="product_detail_img ">
                 <div>
-                  <img src={product.images?.[0].base_url} />
+                  <img src={product.image} />
                 </div>
 
                 <div className="mt-3 ">
                   <div className="grid grid-cols-5 gap-2 pt-3 border-t-[1px] border-[#F2F2F2]">
-                    {product.images?.map((image) => (
+                    {/* {product.images?.map((image) => (
                       <img className="w-20 h-16" src={image.base_url} />
-                    ))}
+                    ))} */}
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@ function ProductPage() {
                     {VND.format(product.price)}
                   </p>
                   <p className="text-[14px] ml-3 mt-1 text-[#707070]">
-                    {VND.format(product.original_price)}
+                    {/* {VND.format(product.original_price)} */}
                   </p>
                 </div>
 
@@ -155,7 +155,7 @@ function ProductPage() {
               <div className="flex text-[#242424] w-5/6 text-[14px] pl-3">
                 <div className=" w-full">
                   <table className=" table-auto leading-10 text-[#4F4F4F]">
-                    {product.specifications?.[0].attributes.map(
+                    {/* {product.specifications?.[0].attributes.map(
                       (item, index) => (
                         <tr>
                           <td className=" bg-[#EFEFEF] leading-4 pl-3">
@@ -164,12 +164,12 @@ function ProductPage() {
                           {index % 2 != 0 ?  <td className="bg-[#efefef] pl-3 w-5/6">{item.value} </td> :  <td className=" pl-3 w-5/6">{item.value} </td>}
                         </tr>
                       )
-                    )}
+                    )} */}
                   </table>
                 </div>
               </div>
             </div>
-            <div className="bg-[#F2F2F2] mt-[70px] rounded-md">
+            {/* <div className="bg-[#F2F2F2] mt-[70px] rounded-md">
               <div className="text-center py-2">
                 <p className="text-[#D70018]">ĐẶC ĐIỂM NỔI BẬT</p>
               </div>
@@ -193,9 +193,9 @@ function ProductPage() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div>{product.description}</div>
+            {/* <div>{product.description}</div> */}
 
             {/* <div className=" text-center w-[350px] m-auto border border-1 border-[#000000] rounded-lg  py-1 ">
               <button className="">

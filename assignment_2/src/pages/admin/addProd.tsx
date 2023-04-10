@@ -1,9 +1,31 @@
 // 1. Xay dung UI trang cap nhat san pham
 // 2. Khai bao cac truong du lieu trong form
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
+import { updateForm, updateSchema } from "../../models";
+import { add } from "../../api/product";
 
 const ProductAdd = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<updateForm>({
+    resolver: yupResolver(updateSchema),
+  });
 
+  const navigate = useNavigate();
+
+  const onSubmit = async (data: updateForm) => {
+    try {
+      const response = await add(data);
+      console.log(response);
+      navigate("/admin");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div
       id="main-content"
@@ -27,13 +49,16 @@ const ProductAdd = () => {
                       <form
                         action=""
                         className="space-y-4"
+                        onSubmit={handleSubmit(onSubmit)}
                       >
                         <div>
                           <label>Name</label>
                           <input
+                            {...register("name")}
                             className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                           />
                           <p className="text-red-600 text-[10px]">
+                            {errors.name && errors.name.message}
                           </p>
                         </div>
 
@@ -41,14 +66,16 @@ const ProductAdd = () => {
                           <div>
                             <label>Gía</label>
                             <input
+                              {...register("price")}
                               className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                               type="number"
                             />
                             <p className="text-red-600 text-[10px]">
+                              {errors.price && errors.price.message}
                             </p>
                           </div>
 
-                          <div>
+                          {/* <div>
                             <label>Giảm giá</label>
                             <input
                               className="w-full rounded-lg border border-gray-200 p-3 text-sm"
@@ -56,16 +83,14 @@ const ProductAdd = () => {
                             />
                             <p className="text-red-600 text-[10px]">
                             </p>
-                          </div>
+                          </div> */}
                         </div>
 
                         <div>
                           <label>Mô tả</label>
-
-                          <textarea
-                            className="w-full rounded-lg border h-96 border-gray-200 p-3 text-sm"
-                          ></textarea>
+                          <textarea {...register("description")} className="w-full rounded-lg border h-96 border-gray-200 p-3 text-sm"></textarea>
                           <p className="text-red-600 text-[10px]">
+                            {errors.description && errors.description.message}
                           </p>
                         </div>
 
@@ -74,7 +99,7 @@ const ProductAdd = () => {
                             type="submit"
                             className="inline-block w-full rounded-lg border bg-black px-5 py-3 font-medium text-white sm:w-auto"
                           >
-                            Cập nhật
+                            Thêm mới
                           </button>
                         </div>
                       </form>

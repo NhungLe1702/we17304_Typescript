@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import { getAll } from "../../api/product";
+import { getAll, remove } from "../../api/product";
 import { IProduct } from "../../models";
 import { Link } from "react-router-dom";
-
-
-
 
 const DashBoard = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -13,7 +10,20 @@ const DashBoard = () => {
     try {
       const { data } = await getAll();
       setProducts(data);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deletePro = async (id: string) => {
+    try {
+      alert("Bạn chắc chắn chứ ?");
+      const { data } = await remove(id);
+      setProducts(data);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -75,44 +85,38 @@ const DashBoard = () => {
                                 scope="col"
                                 className="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Giá khuyến mãi
-                              </th>
-
-                              <th
-                                scope="col"
-                                className="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                              >
                                 Thao tác
                               </th>
                             </tr>
                           </thead>
                           <tbody className="bg-white">
                             {products.map((product) => (
-                              <tr>
+                              <tr key={product._id}>
                                 <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                  <Link to={`/admin/product/${product.id}`}>
+                                  <Link to={`/admin/product/${product._id}`}>
                                     {product.name}
                                   </Link>
                                 </td>
                                 <td className="p-4 w-[30%]  whitespace-nowrap text-sm font-normal text-gray-900">
                                   <img
                                     className="w-[50%]"
-                                    src={product.images?.[0].base_url}
+                                    src={product.image}
                                     alt=""
                                   />
                                 </td>
                                 <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
                                   {VND.format(product.price)}
                                 </td>
+
                                 <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                  {VND.format(product.original_price)}
-                                </td>
-                                <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                  <button className="bg-red-600 text-white rounded-md p-2">
+                                  <button
+                                    className="bg-red-600 text-white rounded-md p-2"
+                                    onClick={() => deletePro(product._id)}
+                                  >
                                     Xoá
                                   </button>
                                   <button className="bg-blue-600 text-white rounded-md p-2 ml-3">
-                                    <Link to={`/admin/product/${product.id}`}>
+                                    <Link to={`/admin/product/${product._id}`}>
                                       Sửa
                                     </Link>
                                   </button>

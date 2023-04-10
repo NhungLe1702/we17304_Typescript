@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import { SigninForm, signinSchema } from "../../models";
 import { signin } from "../../api/auth";
 import { useLocalStorage } from "../../hooks";
@@ -26,11 +26,12 @@ const Signin = () => {
       } = await signin(data);
 
       setUser({ accessToken, ...user });
-      if(user.role) {
+      if(user.role == "admin") {
+        localStorage.setItem("user", JSON.stringify(data));  
+        localStorage.setItem("token", JSON.stringify(accessToken));  
         navigate("/admin");
       } else {
         navigate("/");
-
       }
     } catch (err) {
       console.log(err);
@@ -41,7 +42,6 @@ const Signin = () => {
     <>
       <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
         <div className="flex shadow-md">
-
           <div className="flex flex-wrap content-center justify-center rounded-l-md bg-white w-[25rem] h-[25rem]">
             <div className="w-72">
               <h1 className="text-xl font-semibold">Log In</h1>

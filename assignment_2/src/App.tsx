@@ -8,6 +8,7 @@ import DashBoard from "./pages/admin/dashBoard";
 import ProductUpdate from "./pages/admin/updateProd";
 import AdminLayout from "./components/layout/admin";
 import ProductAdd from "./pages/admin/addProd";
+
 function App() {
   return (
     <BrowserRouter>

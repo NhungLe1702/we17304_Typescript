@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useParams, useNavigate } from "react-router-dom";
-
 import { getById, update } from "../../api/product";
 import { useEffect } from "react";
 import { updateForm, updateSchema } from "../../models";
@@ -12,6 +11,7 @@ import { updateForm, updateSchema } from "../../models";
 const ProductUpdate = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -91,7 +91,7 @@ const ProductUpdate = () => {
                             </p>
                           </div>
 
-                          <div>
+                          {/* <div>
                             <label>Giảm giá:</label>
                             <input
                               className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
@@ -102,7 +102,7 @@ const ProductUpdate = () => {
                               {errors.original_price &&
                                 errors.original_price.message}
                             </p>
-                          </div>
+                          </div> */}
                         </div>
 
                         <div>

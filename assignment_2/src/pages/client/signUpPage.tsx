@@ -42,30 +42,17 @@ const Signup = () => {
               <h1 className="text-xl font-semibold">Sign Up</h1>
 
               <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-                <div className="mb-3">
-                  <label className="mb-2 block text-xs font-semibold">
-                    First Name
-                  </label>
-                  <input
-                    {...register("firstName")}
-                    className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
-                  />
-                  <p className="text-rose-600 text-[13px] h-[15px] w-288px ">
-                    {errors.firstName && errors.firstName.message}
-                  </p>
-                 
-                </div>
 
                 <div className="mb-3">
                   <label className="mb-2 block text-xs font-semibold">
-                    Last Name
+                    Name
                   </label>
                   <input
-                    {...register("lastName")}
+                    {...register("name")}
                     className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500"
                   />
                   <p className="text-rose-600 text-[13px] h-[15px] w-288px ">
-                    {errors.lastName && errors.lastName.message}
+                    {errors.name && errors.name.message}
                   </p>
                 </div>
 

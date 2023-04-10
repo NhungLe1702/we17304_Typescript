@@ -15,8 +15,8 @@ const Product = ({ data }: Props) => {
   return (
     <div>
       <div className="product_img">
-        <Link to={`product/${data.id}`} className="block">
-          <img className="w-[70%] m-auto" src={data?.images[0].base_url} />
+        <Link to={`product/${data._id}`} className="block">
+          <img className="w-[70%] m-auto" src={data.image} />
         </Link>
       </div>
       <div className=" mt-4">
