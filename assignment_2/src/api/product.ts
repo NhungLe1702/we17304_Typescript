@@ -13,8 +13,10 @@ export const getById = (id: string) => {
 };
 
 export const update = (id: string, body: updateForm) => {
+  console.log(body);
+  
   const uri = "/products/" + id;
-  return instance.put(uri, body);
+  return instance.put(uri,  body);
 };
 
 export const remove = (id: string) => {
@@ -23,6 +25,8 @@ export const remove = (id: string) => {
 };
 
 export const add = (body: updateForm) => {
+  console.log(body);
+
   const uri = "/products/";
   return instance.post(uri, body);
 };

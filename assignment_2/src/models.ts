@@ -3,20 +3,12 @@ export interface IProduct {
   _id: string;
   name: string;
   price: number;
-  // original_price: number;
+  percent_discount: number;
   description: string;
   image: string;
-  // brand: { id: number; name: string; slug: string };
-  // specifications: ISpecifications[];
 }
 
-// export interface ISpecifications {
-//   name: string;
-//   attributes: { code: string; name: string; value: string }[];
-// }
-
 export const signupSchema = Yup.object({
-  
   name: Yup.string().required("Trường dữ liệu bắt buộc"),
   email: Yup.string()
     .email("Email sai định dạng")
@@ -43,8 +35,10 @@ export type SigninForm = Yup.InferType<typeof signinSchema>;
 export const updateSchema = Yup.object({
   name: Yup.string().required("Trường dữ liệu bắt buộc"),
   price: Yup.number().required("Trường dữ liệu bắt buộc"),
+  image: Yup.string().required("Trường dữ liệu bắt buộc"),
+  percent_discount: Yup.number(),
   description: Yup.string()
-    .min(10, "Tối thiếu 10 ký tự")
+    .min(10, "Tối thiếu 50 ký tự")
     .required("Trường dữ liệu bắt buộc"),
 });
 

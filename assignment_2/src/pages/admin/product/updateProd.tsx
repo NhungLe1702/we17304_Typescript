@@ -1,31 +1,47 @@
 // 1. Xay dung UI trang cap nhat san pham
 // 2. Khai bao cac truong du lieu trong form
 import { useForm } from "react-hook-form";
+import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
-import { updateForm, updateSchema } from "../../models";
-import { add } from "../../api/product";
+import { useParams, useNavigate } from "react-router-dom";
+import { getById, update } from "../../../api/product";
+import { useEffect } from "react";
+import { updateForm, updateSchema } from "../../../models";
 
-const ProductAdd = () => {
+const ProductUpdate = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<updateForm>({
     resolver: yupResolver(updateSchema),
+    defaultValues: async () => {
+      if (id) {
+        return await fetchProductById(id);
+      }
+    },
   });
-
-  const navigate = useNavigate();
 
   const onSubmit = async (data: updateForm) => {
     try {
-      const response = await add(data);
-      console.log(response);
-      navigate("/admin");
+      if (id) {
+        const response = await update(id, data);
+        console.log(response);
+        navigate("/admin");
+      }
     } catch (err) {
       console.log(err);
     }
   };
+
+  const fetchProductById = async (id: string) => {
+    const { data } = await getById(id);
+    return data;
+  };
+
   return (
     <div
       id="main-content"
@@ -38,7 +54,7 @@ const ProductAdd = () => {
               <div className="mb-4 flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Thêm mới sản phẩm
+                    Cập nhật sản phẩm
                   </h3>
                 </div>
               </div>
@@ -52,22 +68,33 @@ const ProductAdd = () => {
                         onSubmit={handleSubmit(onSubmit)}
                       >
                         <div>
-                          <label>Name</label>
+                          <label>Tên sản phẩm: </label>
                           <input
+                            className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
                             {...register("name")}
-                            className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                           />
                           <p className="text-red-600 text-[10px]">
                             {errors.name && errors.name.message}
                           </p>
                         </div>
 
+                        <div>
+                          <label>Hình ảnh: </label>
+                          <input
+                            className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
+                            {...register("image")}
+                          />
+                          <p className="text-red-600 text-[10px]">
+                            {errors.image && errors.image.message}
+                          </p>
+                        </div>
+
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                           <div>
-                            <label>Gía</label>
+                            <label>Gía:</label>
                             <input
+                              className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
                               {...register("price")}
-                              className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                               type="number"
                             />
                             <p className="text-red-600 text-[10px]">
@@ -75,20 +102,27 @@ const ProductAdd = () => {
                             </p>
                           </div>
 
-                          {/* <div>
-                            <label>Giảm giá</label>
+                          <div>
+                            <label>Giảm giá:</label>
                             <input
-                              className="w-full rounded-lg border border-gray-200 p-3 text-sm"
+                              className="w-full rounded-lg border border-gray-200 p-3 text-sm mt-3"
+                              {...register("percent_discount")}
                               type="number"
                             />
                             <p className="text-red-600 text-[10px]">
+                              {errors.percent_discount &&
+                                errors.percent_discount.message}
                             </p>
-                          </div> */}
+                          </div>
                         </div>
 
                         <div>
-                          <label>Mô tả</label>
-                          <textarea {...register("description")} className="w-full rounded-lg border h-96 border-gray-200 p-3 text-sm"></textarea>
+                          <label>Mô tả:</label>
+
+                          <textarea
+                            className="w-full h-96 rounded-lg border border-gray-200 p-3 text-sm mt-3"
+                            {...register("description")}
+                          ></textarea>
                           <p className="text-red-600 text-[10px]">
                             {errors.description && errors.description.message}
                           </p>
@@ -99,7 +133,7 @@ const ProductAdd = () => {
                             type="submit"
                             className="inline-block w-full rounded-lg border bg-black px-5 py-3 font-medium text-white sm:w-auto"
                           >
-                            Thêm mới
+                            Cập nhật
                           </button>
                         </div>
                       </form>
@@ -123,4 +157,4 @@ const ProductAdd = () => {
   );
 };
 
-export default ProductAdd;
+export default ProductUpdate;

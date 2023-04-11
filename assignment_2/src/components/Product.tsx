@@ -16,7 +16,7 @@ const Product = ({ data }: Props) => {
     <div>
       <div className="product_img">
         <Link to={`product/${data._id}`} className="block">
-          <img className="w-[70%] m-auto" src={data.image} />
+          <img className="w-[70%] h-[180px] m-auto" src={data.image} />
         </Link>
       </div>
       <div className=" mt-4">
