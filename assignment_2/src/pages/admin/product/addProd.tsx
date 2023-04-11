@@ -21,7 +21,7 @@ const ProductAdd = () => {
     try {
       const response = await add(data);
       console.log(response);
-      navigate("/admin");
+      navigate("/admin/product");
     } catch (err) {
       console.log(err);
     }
@@ -89,7 +89,7 @@ const ProductAdd = () => {
                           <div>
                             <label>Phần trăm giảm giá</label>
                             <input
-                              {...register("image")}
+                              {...register("percent_discount")}
                               className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                               type="text"
                             />

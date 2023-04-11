@@ -30,7 +30,7 @@ const ProductUpdate = () => {
       if (id) {
         const response = await update(id, data);
         console.log(response);
-        navigate("/admin");
+        navigate("/admin/product");
       }
     } catch (err) {
       console.log(err);

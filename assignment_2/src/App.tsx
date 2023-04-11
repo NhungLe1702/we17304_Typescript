@@ -5,9 +5,12 @@ import Signup from "./pages/client/signUpPage";
 import Login from "./pages/client/loginPage";
 import ProductPage from "./pages/client/productPage";
 import DashBoard from "./pages/admin/dashBoard";
-import ProductUpdate from "./pages/admin/product/updateProd";
 import AdminLayout from "./components/layout/admin";
+import ProductUpdate from "./pages/admin/product/updateProd";
 import ProductAdd from "./pages/admin/product/addProd";
+import ListProduct from "./pages/admin/product/listProd";
+import ListCate from "./pages/admin/category/listCate";
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,8 +26,11 @@ function App() {
 
         <Route path="/admin" element={<AdminLayout/>}>
           <Route index element={<DashBoard />} />
+          <Route path="product/" element={<ListProduct />} />
           <Route path="product/:id" element={<ProductUpdate />} />
           <Route path="product/add" element={<ProductAdd />} />
+          <Route path="category/" element={<ListCate />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
