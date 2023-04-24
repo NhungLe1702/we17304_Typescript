@@ -6,7 +6,6 @@ type Props = {
 };
 
 const Product = ({ data }: Props) => {
-
   const VND = new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",

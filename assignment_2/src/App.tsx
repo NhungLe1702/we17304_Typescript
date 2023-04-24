@@ -10,7 +10,8 @@ import ProductUpdate from "./pages/admin/product/updateProd";
 import ProductAdd from "./pages/admin/product/addProd";
 import ListProduct from "./pages/admin/product/listProd";
 import ListCate from "./pages/admin/category/listCate";
-
+import AddCate from "./pages/admin/category/add";
+import UpdateCate from "./pages/admin/category/update";
 function App() {
   return (
     <BrowserRouter>
@@ -29,8 +30,11 @@ function App() {
           <Route path="product/" element={<ListProduct />} />
           <Route path="product/:id" element={<ProductUpdate />} />
           <Route path="product/add" element={<ProductAdd />} />
-          <Route path="category/" element={<ListCate />} />
 
+          <Route path="category/" element={<ListCate />} />
+          <Route path="category/add" element={<AddCate />} />
+          <Route path="category/:id" element={<UpdateCate />} />
+          
         </Route>
       </Routes>
     </BrowserRouter>

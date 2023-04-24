@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAll } from "../../../api/category";
+import { getAll, remove } from "../../../api/category";
 import { ICate } from "../../../models";
 import { Link } from "react-router-dom";
 
@@ -15,14 +15,20 @@ const ListCate = () => {
     }
   };
 
+  const deleteCate = async (id: string) => {
+    try {
+      confirm("Bạn chắc chắn chứ ?");
+      const { data } = await remove(id);
+      setCategories(data);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchCate();
   }, []);
-
-  const VND = new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "VND",
-  });
 
   return (
     <>
@@ -40,7 +46,7 @@ const ListCate = () => {
                       Danh sách loại sản phẩm
                     </h3>
                     <button className="mb-1.5 block w-full text-center text-white bg-[#3498a5] hover:bg-[#298995] px-2 py-1.5 rounded-md font-bold">
-                      <Link to={`/admin/product/add`}>Thêm loại</Link>
+                      <Link to={`/admin/category/add`}>Thêm loại</Link>
                     </button>
                   </div>
                 </div>
@@ -63,7 +69,6 @@ const ListCate = () => {
                               >
                                 Thao tác
                               </th>
-                             
                             </tr>
                           </thead>
                           <tbody className="bg-white">
@@ -76,11 +81,14 @@ const ListCate = () => {
                                 </td>
 
                                 <td className="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                  <button className="bg-red-600 text-white rounded-md p-2">
+                                  <button
+                                    className="bg-red-600 text-white rounded-md p-2"
+                                    onClick={() => deleteCate(cate._id)}
+                                  >
                                     Xoá
                                   </button>
                                   <button className="bg-blue-600 text-white rounded-md p-2 ml-3">
-                                    <Link to={`/admin/product/${cate._id}`}>
+                                    <Link to={`/admin/category/${cate._id}`}>
                                       Sửa
                                     </Link>
                                   </button>

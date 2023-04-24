@@ -26,9 +26,10 @@ const Signin = () => {
       } = await signin(data);
 
       setUser({ accessToken, ...user });
-      if(user.role == "admin") {
-        localStorage.setItem("user", JSON.stringify(data));  
-        localStorage.setItem("token", JSON.stringify(accessToken));  
+      if (user.role == "admin") {
+        localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("token", JSON.stringify(accessToken));
+        alert("Đăng nhập thành công!");
         navigate("/admin");
       } else {
         navigate("/");
@@ -47,7 +48,6 @@ const Signin = () => {
               <h1 className="text-xl font-semibold">Log In</h1>
 
               <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
-
                 <div className="mb-3">
                   <label className="mb-2 block text-xs font-semibold">
                     Email
@@ -81,7 +81,6 @@ const Signin = () => {
                   </button>
                 </div>
               </form>
-
             </div>
           </div>
 
